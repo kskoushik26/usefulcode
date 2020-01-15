@@ -1,0 +1,119 @@
+<html>
+    <head>
+
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+    </head>
+    
+    <body>
+   
+    
+    
+ <form [formGroup]="userEntryForm" (ngSubmit)="onSubmit(userEntryForm.value)" validate> 
+     
+   
+
+
+     <div class="form-group col-md-6" style="float: left;"> 
+         <h1 style="width:500px;height:700px;"></h1> 
+       
+    </div> 
+    <div class="form-group col-md-6">
+        <br>
+        <h1 >Forecasting Tool </h1>    
+         <h3>Register now by filling the details below.</h3> <br>      
+         <h5>Already Registered?<a href="#"> Log in </a></h5>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+        <div class="error message" *ngIf="userEntryForm.get('firstName').touched && userEntryForm.get('firstName').hasError('required') "><i>First Name is required !</i></div>
+        <div class="error message" *ngIf="userEntryForm.get('lastName').touched && userEntryForm.get('lastName').hasError('required') "><i>Last Name is required !</i></div>
+        <div class="error message" *ngIf="userEntryForm.get('globalId').touched && userEntryForm.get('globalId').hasError('required') "><i>Global-Id is required !</i></div>
+        <div class="error message" *ngIf="userEntryForm.get('employeeId').touched && userEntryForm.get('employeeId').hasError('required') "><i>Employee-Id  is required !</i></div>
+        <div class="error message" *ngIf="userEntryForm.get('emailId').touched && userEntryForm.get('emailId').hasError('required') "><i>Email-Id is required !</i></div>
+        <div class="error message" *ngIf="userEntryForm.get('emailId').touched && userEntryForm.get('emailId').hasError('pattern') "><i>Email-Id format should be like <i>......@capgemini.com</i> </i></div>
+        <div class="error message" *ngIf="userEntryForm.get('createPassword').touched && userEntryForm.get('createPassword').hasError('required') "><i>Password is required !</i></div>
+        <div class="error message" *ngIf="userEntryForm.get('confirmPassword').touched && userEntryForm.get('confirmPassword').hasError('required') "><i>Password is required !</i></div>
+            </div></div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <div class="firstname">
+        <h4 >First Name </h4> <input  type="text"  formControlName="firstName" placeholder="  Alexander"/>
+        </div>
+        </div>
+        <div class="form-group col-md-3">
+        <div class="lastname">
+         
+           <h4 >Last Name  </h4> <input  type="text" formControlName="lastName" placeholder="  Hunghman"/>
+            </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group col-md-3">
+             <div class="globalId">
+                <h4 > Global ID </h4> <input  type="number" formControlName="globalId" placeholder="  012345"/>
+              </div>
+        </div>
+        <div class="form-group col-md-3">
+                <div class="employeeid">
+                    <h4 > Employee ID  </h4> <input  type="number" formControlName="employeeId" placeholder="  012345"/>
+                </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">         
+            <div class="emailid">
+                    <h4> Email ID  </h4><input style="width:429px" type="text" formControlName="emailId" placeholder=" alex.hunghman2000@capgemini.com "/>
+                </div>
+        </div>
+       
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">   
+                   <div class="createpassword">
+                        <h4 > Create Password </h4> <input #a  type="password" formControlName="createPassword" placeholder="  *******" ><br>
+                        <input type="checkbox" (click)="a.type=a.type=='password'?'text':'password'">Show password
+                     </div>
+        </div>
+        <div class="form-group col-md-3"> 
+                        <div class="confirmpassword">  
+                            <h4 > Confirm Password  </h4> <input #b  type="password"  formControlName="confirmPassword" placeholder="  *******" [(ngModel)]="cpass"  ><br>
+                            <input type="checkbox" (click)="b.type=b.type=='password'?'text':'password'">Show password
+                        </div>
+        </div>
+    </div>
+    <!-- <div class="form-row">
+        <div class="form-group col-md-3">
+            <h1></h1>
+            </div>
+            
+                <div class="form-group col-md-3">
+                    <h1></h1>
+                    </div></div> -->
+    <div class="form-row">
+        <div class="form-group col-md-2">   
+              <div class="save">
+                <button class="button" >Register</button>
+              </div>
+            </div>
+            <div class="form-group col-md-2"> 
+             <div class="cancel">
+                <input type="button" (click)="onCancel()" class="ser" value="Cancel" > 
+    </div>  </div>
+    </div>
+            </div>   
+
+ </form> 
+   
+    </body>
+    
+</html>

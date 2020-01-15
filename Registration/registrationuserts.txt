@@ -1,0 +1,18 @@
+export class User{
+    firstName:string;
+    lastName:string;
+    globalID:number;
+    employeeID:number;
+    emailID:string;
+    password:string;
+
+
+constructor(firstName:string,lastName:string,gloabalID:number ,empID:number,emailID:string,password:string){
+this.firstName=firstName;
+this.lastName=lastName;
+this.globalID=gloabalID;
+this.employeeID=empID;
+this.emailID=emailID;
+this.password=password;
+
+}}
